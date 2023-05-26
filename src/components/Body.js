@@ -49,7 +49,7 @@ const Body = () => {
 
         <input
           data-testid="search-box"
-          className="p-1 border-2 bg-green-200"
+          className="p-1 border-2 bg-blue-100 "
           value={searchedText}
           onChange={(e) => setSearchedText(e.target.value)}
         ></input>

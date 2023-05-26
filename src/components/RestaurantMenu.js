@@ -14,6 +14,16 @@ const RestaurantMenu = () => {
     restaurantMenu[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card
       ?.itemCards;
 
+  let ratingStyles = "w-[40px] px-2 text-white";
+
+  if (resInfo?.avgRatingString <= 2) {
+    ratingStyles += " bg-red-500";
+  } else if (resInfo?.avgRatingString <= 4) {
+    ratingStyles += " bg-orange-500";
+  } else {
+    ratingStyles += " bg-green-500";
+  }
+
   return restaurantMenu?.length === 0 ? (
     <Shimmer />
   ) : (
@@ -30,7 +40,7 @@ const RestaurantMenu = () => {
             <h4 className="text-xl">
               {resInfo?.city + ", " + resInfo?.locality}
             </h4>
-            <h5 className="font-bold">{resInfo?.avgRatingString} Stars</h5>
+            <h5 className={ratingStyles}>{resInfo?.avgRatingString}</h5>
           </div>
         </div>
       </div>

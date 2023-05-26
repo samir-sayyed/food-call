@@ -14,7 +14,7 @@ const Cart = () => {
     <div className="flex flex-col items-center">
       <h1 className="m-5 text-4xl font-bold">Cart {cartItems.length}</h1>
       <button onClick={() => handleClearCartAction()}>Clear cart</button>
-      <ul>
+      <ul className="flex flex-wrap items-center justify-center">
         {cartItems.map((item) => (
           <MenuItem key={item.id} menu={item} />
         ))}

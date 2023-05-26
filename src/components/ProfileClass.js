@@ -13,7 +13,7 @@ class ProfileClass extends React.Component {
   }
 
   async componentDidMount() {
-    const data = await fetch("https://api.github.com/users/akshaymarch7");
+    const data = await fetch("https://api.github.com/users/samir-sayyed");
     const json = await data.json();
     this.setState({
       userInfo: json,
@@ -34,7 +34,7 @@ class ProfileClass extends React.Component {
     return (
       <div>
         <h1>Profile class</h1>
-        <img src={this.state.userInfo.avatar_url} />
+        <img className="w-[200px]" src={this.state.userInfo.avatar_url} />
         <h1>Name: {this.state.userInfo.name}</h1>
         <h2>Location : {this.state.userInfo.name}</h2>
       </div>
