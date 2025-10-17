@@ -4,6 +4,7 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useIsOnline from "../utils/useIsOnline";
 import UserContext from "../utils/UserContext";
+import mockData from "../utils/mockData";
 
 const Body = () => {
   const [resList, setResList] = useState([]);
@@ -24,12 +25,16 @@ const Body = () => {
     return <h1>Ohh.... seems like you are disconnected from world!!</h1>;
 
   async function getRestaurantList() {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.385044&lng=78.486671&page_type=DESKTOP_WEB_LISTING"
-    );
-    const json = await data.json();
-    setResList(json?.data?.cards[2]?.data?.data?.cards);
-    setFilteredResList(json?.data?.cards[2]?.data?.data?.cards);
+    // Using mock data instead of API call to avoid CORS issues
+    // const data = await fetch(
+    //   "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.385044&lng=78.486671&page_type=DESKTOP_WEB_LISTING"
+    // );
+    // const json = await data.json();
+    // setResList(json?.data?.cards[2]?.data?.data?.cards);
+    // setFilteredResList(json?.data?.cards[2]?.data?.data?.cards);
+    
+    setResList(mockData);
+    setFilteredResList(mockData);
   }
 
   return filteredResList?.length === 0 ? (
